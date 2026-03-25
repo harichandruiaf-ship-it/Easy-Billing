@@ -2,6 +2,24 @@
 
 This app uses **Firebase Authentication (Email/Password)** and **Cloud Firestore**. It must be opened over **http://localhost** or **https://** (not `file://`) so Firebase and the PWA service worker work correctly.
 
+## Run on your PC (localhost)
+
+**You do not need Python.** `START.bat` runs a small static file server using **PowerShell** (included with Windows).
+
+1. Double‑click **`START.bat`** in the project folder.  
+   - A **blue PowerShell** window stays open — **leave it open** while you use the app.  
+   - Your browser should open **`http://127.0.0.1:8080/`**. If not, type that URL (same as `http://localhost:8080/`).
+2. **Stop the server** (use whichever works):  
+   - **Easiest:** double‑click **`STOP.bat`** in the project folder (ends the process on port 8080).  
+   - Or click the **PowerShell** window and press **Ctrl+C** (sometimes twice).  
+   - Or run: `powershell -ExecutionPolicy Bypass -File .\stop-server.ps1`  
+   If you changed the port in **`start-no-python.ps1`**, set the same port in **`STOP.bat`** (and in **`stop-server.ps1`**).
+3. If **`START.bat` is blocked** or PowerShell won’t run scripts: right‑click **`start-no-python.ps1`** → **Run with PowerShell**, or run:  
+   `powershell -ExecutionPolicy Bypass -File .\start-no-python.ps1`
+4. If port **8080** is busy, edit **`start-no-python.ps1`** and change the line `$port = 8080` to another port (e.g. `8081`), then open **`http://127.0.0.1:8081/`**.
+5. **Optional — Python instead:** double‑click **`START-python.bat`** (requires Python 3 on PATH).
+6. If HttpListener fails with a permission error, run PowerShell **as Administrator** once, or try another port.
+
 ## 1. Create a Firebase project
 
 1. Go to [Firebase Console](https://console.firebase.google.com/) and click **Add project**.
